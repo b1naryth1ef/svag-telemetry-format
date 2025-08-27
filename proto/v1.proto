@@ -1,0 +1,76 @@
+syntax="proto3";
+
+message RecordingSample {
+  uint64 unix_time = 1;
+  uint32 frame_number = 2;
+  bool bluetooth_connected = 3;
+  int32 fan_current = 4;
+  int32 pump_current = 5;
+  int32 vcu_humidity = 6;
+  int32 vcu_temperature = 7;
+  int32 throttle_id_fb = 8;
+  int32 throttle_iq_fb = 9;
+  int32 throttle_position = 10;
+  int32 map = 11;
+  int32 speed_kmh = 12;
+  int32 motor_rpm = 13;
+  int32 odometer = 14;
+  int32 inverter_dc_bus = 15;
+  int32 inverter_iq_ref = 16;
+  int32 inverter_id_ref = 17;
+  int32 inverter_iq = 18;
+  int32 inverter_id = 19;
+  int32 inverter_vq = 20;
+  int32 inverter_vd = 21;
+  int32 mcu_temp_logic = 22;
+  int32 mcu_temp_gate = 23;
+  int32 ntc1 = 24;
+  int32 ntc2 = 25;
+  int32 ntc3 = 26;
+  int32 inverter_pcb_temp = 27;
+  int32 inverter_pcb_humidity = 28;
+  int32 faults = 29;
+  int32 status = 30;
+  int32 inverter_humidity = 31;
+  int32 misc_bits = 32;
+  int32 indicator_bits = 33;
+  int32 alert_bits = 34;
+  int32 fault_bits = 35;
+  int32 info_bits = 36;
+  int32 battery_dc_bus = 37;
+  int32 battery_soc = 38;
+  int32 battery_current = 39;
+  int32 battery_v_min = 40;
+  int32 battery_v_max = 41;
+  int32 battery_v_avg = 42;
+  uint64 gps_timestamp = 43;
+  float gps_speed = 44;
+  int32 gps_heading = 45;
+  int32 gps_altitude = 46;
+  float gps_accuracy = 47;
+  float gps_altitude_accuracy = 48;
+  double gps_longitude = 49;
+  double gps_latitude = 50;
+
+  TemperatureSensorData igbt_sensor = 51;
+  TemperatureSensorData motor_sensor = 52;
+  IMUData imu_data = 53;
+  repeated int32 battery_temperatures = 54;
+}
+
+message IMUData {
+  int32 accel_x = 1;
+  int32 accel_y = 2;
+  int32 accel_z = 3;
+  int32 gyro_x = 4;
+  int32 gyro_y = 5;
+  int32 gyro_z = 6;
+}
+
+message TemperatureSensorData {
+  int32 sensor1 = 1;
+  int32 sensor2 = 2;
+  int32 sensor3 = 3;
+  bool valid = 4;
+  bool used = 5;
+}

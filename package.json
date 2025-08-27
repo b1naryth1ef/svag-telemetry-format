@@ -1,0 +1,23 @@
+{
+  "name": "@b1naryth1ef/svag-telemetry-format",
+  "version": "1.0.1",
+  "description": "Telemetry data format for the Svag application",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b1naryth1ef/svag-telemetry-format.git"
+  },
+  "author": "",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pbjs -w es6 -t static-module -o src/index.js proto/v1.proto && pbts src/index.js -o src/index.d.ts"
+  },
+  "dependencies": {
+    "protobufjs": "^7.5.4"
+  },
+  "devDependencies": {
+    "protobufjs-cli": "^1.1.3"
+  }
+}
