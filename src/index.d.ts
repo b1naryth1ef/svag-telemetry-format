@@ -4,7 +4,7 @@ import Long = require("long");
 export interface IRecordingSample {
 
     /** RecordingSample unixTime */
-    unixTime?: (number|Long|null);
+    unixTime?: (Long|null);
 
     /** RecordingSample frameNumber */
     frameNumber?: (number|null);
@@ -130,7 +130,7 @@ export interface IRecordingSample {
     batteryVAvg?: (number|null);
 
     /** RecordingSample gpsTimestamp */
-    gpsTimestamp?: (number|null);
+    gpsTimestamp?: (Long|null);
 
     /** RecordingSample gpsSpeed */
     gpsSpeed?: (number|null);
@@ -176,154 +176,154 @@ export class RecordingSample implements IRecordingSample {
     constructor(properties?: IRecordingSample);
 
     /** RecordingSample unixTime. */
-    public unixTime: (number|Long);
+    public unixTime?: (Long|null);
 
     /** RecordingSample frameNumber. */
-    public frameNumber: number;
+    public frameNumber?: (number|null);
 
     /** RecordingSample bluetoothConnected. */
-    public bluetoothConnected: boolean;
+    public bluetoothConnected?: (boolean|null);
 
     /** RecordingSample fanCurrent. */
-    public fanCurrent: number;
+    public fanCurrent?: (number|null);
 
     /** RecordingSample pumpCurrent. */
-    public pumpCurrent: number;
+    public pumpCurrent?: (number|null);
 
     /** RecordingSample vcuHumidity. */
-    public vcuHumidity: number;
+    public vcuHumidity?: (number|null);
 
     /** RecordingSample vcuTemperature. */
-    public vcuTemperature: number;
+    public vcuTemperature?: (number|null);
 
     /** RecordingSample throttleIdFb. */
-    public throttleIdFb: number;
+    public throttleIdFb?: (number|null);
 
     /** RecordingSample throttleIqFb. */
-    public throttleIqFb: number;
+    public throttleIqFb?: (number|null);
 
     /** RecordingSample throttlePosition. */
-    public throttlePosition: number;
+    public throttlePosition?: (number|null);
 
     /** RecordingSample map. */
-    public map: number;
+    public map?: (number|null);
 
     /** RecordingSample speedKmh. */
-    public speedKmh: number;
+    public speedKmh?: (number|null);
 
     /** RecordingSample motorRpm. */
-    public motorRpm: number;
+    public motorRpm?: (number|null);
 
     /** RecordingSample odometer. */
-    public odometer: number;
+    public odometer?: (number|null);
 
     /** RecordingSample inverterDcBus. */
-    public inverterDcBus: number;
+    public inverterDcBus?: (number|null);
 
     /** RecordingSample inverterIqRef. */
-    public inverterIqRef: number;
+    public inverterIqRef?: (number|null);
 
     /** RecordingSample inverterIdRef. */
-    public inverterIdRef: number;
+    public inverterIdRef?: (number|null);
 
     /** RecordingSample inverterIq. */
-    public inverterIq: number;
+    public inverterIq?: (number|null);
 
     /** RecordingSample inverterId. */
-    public inverterId: number;
+    public inverterId?: (number|null);
 
     /** RecordingSample inverterVq. */
-    public inverterVq: number;
+    public inverterVq?: (number|null);
 
     /** RecordingSample inverterVd. */
-    public inverterVd: number;
+    public inverterVd?: (number|null);
 
     /** RecordingSample mcuTempLogic. */
-    public mcuTempLogic: number;
+    public mcuTempLogic?: (number|null);
 
     /** RecordingSample mcuTempGate. */
-    public mcuTempGate: number;
+    public mcuTempGate?: (number|null);
 
     /** RecordingSample ntc1. */
-    public ntc1: number;
+    public ntc1?: (number|null);
 
     /** RecordingSample ntc2. */
-    public ntc2: number;
+    public ntc2?: (number|null);
 
     /** RecordingSample ntc3. */
-    public ntc3: number;
+    public ntc3?: (number|null);
 
     /** RecordingSample inverterPcbTemp. */
-    public inverterPcbTemp: number;
+    public inverterPcbTemp?: (number|null);
 
     /** RecordingSample inverterPcbHumidity. */
-    public inverterPcbHumidity: number;
+    public inverterPcbHumidity?: (number|null);
 
     /** RecordingSample faults. */
-    public faults: number;
+    public faults?: (number|null);
 
     /** RecordingSample status. */
-    public status: number;
+    public status?: (number|null);
 
     /** RecordingSample inverterHumidity. */
-    public inverterHumidity: number;
+    public inverterHumidity?: (number|null);
 
     /** RecordingSample miscBits. */
-    public miscBits: number;
+    public miscBits?: (number|null);
 
     /** RecordingSample indicatorBits. */
-    public indicatorBits: number;
+    public indicatorBits?: (number|null);
 
     /** RecordingSample alertBits. */
-    public alertBits: number;
+    public alertBits?: (number|null);
 
     /** RecordingSample faultBits. */
-    public faultBits: number;
+    public faultBits?: (number|null);
 
     /** RecordingSample infoBits. */
-    public infoBits: number;
+    public infoBits?: (number|null);
 
     /** RecordingSample batteryDcBus. */
-    public batteryDcBus: number;
+    public batteryDcBus?: (number|null);
 
     /** RecordingSample batterySoc. */
-    public batterySoc: number;
+    public batterySoc?: (number|null);
 
     /** RecordingSample batteryCurrent. */
-    public batteryCurrent: number;
+    public batteryCurrent?: (number|null);
 
     /** RecordingSample batteryVMin. */
-    public batteryVMin: number;
+    public batteryVMin?: (number|null);
 
     /** RecordingSample batteryVMax. */
-    public batteryVMax: number;
+    public batteryVMax?: (number|null);
 
     /** RecordingSample batteryVAvg. */
-    public batteryVAvg: number;
+    public batteryVAvg?: (number|null);
 
     /** RecordingSample gpsTimestamp. */
-    public gpsTimestamp: number;
+    public gpsTimestamp?: (Long|null);
 
     /** RecordingSample gpsSpeed. */
-    public gpsSpeed: number;
+    public gpsSpeed?: (number|null);
 
     /** RecordingSample gpsHeading. */
-    public gpsHeading: number;
+    public gpsHeading?: (number|null);
 
     /** RecordingSample gpsAltitude. */
-    public gpsAltitude: number;
+    public gpsAltitude?: (number|null);
 
     /** RecordingSample gpsAccuracy. */
-    public gpsAccuracy: number;
+    public gpsAccuracy?: (number|null);
 
     /** RecordingSample gpsAltitudeAccuracy. */
-    public gpsAltitudeAccuracy: number;
+    public gpsAltitudeAccuracy?: (number|null);
 
     /** RecordingSample gpsLongitude. */
-    public gpsLongitude: number;
+    public gpsLongitude?: (number|null);
 
     /** RecordingSample gpsLatitude. */
-    public gpsLatitude: number;
+    public gpsLatitude?: (number|null);
 
     /** RecordingSample igbtSensor. */
     public igbtSensor?: (ITemperatureSensorData|null);
@@ -447,22 +447,22 @@ export class IMUData implements IIMUData {
     constructor(properties?: IIMUData);
 
     /** IMUData accelX. */
-    public accelX: number;
+    public accelX?: (number|null);
 
     /** IMUData accelY. */
-    public accelY: number;
+    public accelY?: (number|null);
 
     /** IMUData accelZ. */
-    public accelZ: number;
+    public accelZ?: (number|null);
 
     /** IMUData gyroX. */
-    public gyroX: number;
+    public gyroX?: (number|null);
 
     /** IMUData gyroY. */
-    public gyroY: number;
+    public gyroY?: (number|null);
 
     /** IMUData gyroZ. */
-    public gyroZ: number;
+    public gyroZ?: (number|null);
 
     /**
      * Creates a new IMUData instance using the specified properties.
@@ -571,19 +571,19 @@ export class TemperatureSensorData implements ITemperatureSensorData {
     constructor(properties?: ITemperatureSensorData);
 
     /** TemperatureSensorData sensor1. */
-    public sensor1: number;
+    public sensor1?: (number|null);
 
     /** TemperatureSensorData sensor2. */
-    public sensor2: number;
+    public sensor2?: (number|null);
 
     /** TemperatureSensorData sensor3. */
-    public sensor3: number;
+    public sensor3?: (number|null);
 
     /** TemperatureSensorData valid. */
-    public valid: boolean;
+    public valid?: (boolean|null);
 
     /** TemperatureSensorData used. */
-    public used: boolean;
+    public used?: (boolean|null);
 
     /**
      * Creates a new TemperatureSensorData instance using the specified properties.

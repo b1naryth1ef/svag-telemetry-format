@@ -13,7 +13,7 @@ export const RecordingSample = $root.RecordingSample = (() => {
      * Properties of a RecordingSample.
      * @exports IRecordingSample
      * @interface IRecordingSample
-     * @property {number|Long|null} [unixTime] RecordingSample unixTime
+     * @property {Long|null} [unixTime] RecordingSample unixTime
      * @property {number|null} [frameNumber] RecordingSample frameNumber
      * @property {boolean|null} [bluetoothConnected] RecordingSample bluetoothConnected
      * @property {number|null} [fanCurrent] RecordingSample fanCurrent
@@ -55,7 +55,7 @@ export const RecordingSample = $root.RecordingSample = (() => {
      * @property {number|null} [batteryVMin] RecordingSample batteryVMin
      * @property {number|null} [batteryVMax] RecordingSample batteryVMax
      * @property {number|null} [batteryVAvg] RecordingSample batteryVAvg
-     * @property {number|null} [gpsTimestamp] RecordingSample gpsTimestamp
+     * @property {Long|null} [gpsTimestamp] RecordingSample gpsTimestamp
      * @property {number|null} [gpsSpeed] RecordingSample gpsSpeed
      * @property {number|null} [gpsHeading] RecordingSample gpsHeading
      * @property {number|null} [gpsAltitude] RecordingSample gpsAltitude
@@ -87,403 +87,403 @@ export const RecordingSample = $root.RecordingSample = (() => {
 
     /**
      * RecordingSample unixTime.
-     * @member {number|Long} unixTime
+     * @member {Long|null|undefined} unixTime
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.unixTime = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+    RecordingSample.prototype.unixTime = null;
 
     /**
      * RecordingSample frameNumber.
-     * @member {number} frameNumber
+     * @member {number|null|undefined} frameNumber
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.frameNumber = 0;
+    RecordingSample.prototype.frameNumber = null;
 
     /**
      * RecordingSample bluetoothConnected.
-     * @member {boolean} bluetoothConnected
+     * @member {boolean|null|undefined} bluetoothConnected
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.bluetoothConnected = false;
+    RecordingSample.prototype.bluetoothConnected = null;
 
     /**
      * RecordingSample fanCurrent.
-     * @member {number} fanCurrent
+     * @member {number|null|undefined} fanCurrent
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.fanCurrent = 0;
+    RecordingSample.prototype.fanCurrent = null;
 
     /**
      * RecordingSample pumpCurrent.
-     * @member {number} pumpCurrent
+     * @member {number|null|undefined} pumpCurrent
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.pumpCurrent = 0;
+    RecordingSample.prototype.pumpCurrent = null;
 
     /**
      * RecordingSample vcuHumidity.
-     * @member {number} vcuHumidity
+     * @member {number|null|undefined} vcuHumidity
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.vcuHumidity = 0;
+    RecordingSample.prototype.vcuHumidity = null;
 
     /**
      * RecordingSample vcuTemperature.
-     * @member {number} vcuTemperature
+     * @member {number|null|undefined} vcuTemperature
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.vcuTemperature = 0;
+    RecordingSample.prototype.vcuTemperature = null;
 
     /**
      * RecordingSample throttleIdFb.
-     * @member {number} throttleIdFb
+     * @member {number|null|undefined} throttleIdFb
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.throttleIdFb = 0;
+    RecordingSample.prototype.throttleIdFb = null;
 
     /**
      * RecordingSample throttleIqFb.
-     * @member {number} throttleIqFb
+     * @member {number|null|undefined} throttleIqFb
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.throttleIqFb = 0;
+    RecordingSample.prototype.throttleIqFb = null;
 
     /**
      * RecordingSample throttlePosition.
-     * @member {number} throttlePosition
+     * @member {number|null|undefined} throttlePosition
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.throttlePosition = 0;
+    RecordingSample.prototype.throttlePosition = null;
 
     /**
      * RecordingSample map.
-     * @member {number} map
+     * @member {number|null|undefined} map
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.map = 0;
+    RecordingSample.prototype.map = null;
 
     /**
      * RecordingSample speedKmh.
-     * @member {number} speedKmh
+     * @member {number|null|undefined} speedKmh
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.speedKmh = 0;
+    RecordingSample.prototype.speedKmh = null;
 
     /**
      * RecordingSample motorRpm.
-     * @member {number} motorRpm
+     * @member {number|null|undefined} motorRpm
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.motorRpm = 0;
+    RecordingSample.prototype.motorRpm = null;
 
     /**
      * RecordingSample odometer.
-     * @member {number} odometer
+     * @member {number|null|undefined} odometer
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.odometer = 0;
+    RecordingSample.prototype.odometer = null;
 
     /**
      * RecordingSample inverterDcBus.
-     * @member {number} inverterDcBus
+     * @member {number|null|undefined} inverterDcBus
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterDcBus = 0;
+    RecordingSample.prototype.inverterDcBus = null;
 
     /**
      * RecordingSample inverterIqRef.
-     * @member {number} inverterIqRef
+     * @member {number|null|undefined} inverterIqRef
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterIqRef = 0;
+    RecordingSample.prototype.inverterIqRef = null;
 
     /**
      * RecordingSample inverterIdRef.
-     * @member {number} inverterIdRef
+     * @member {number|null|undefined} inverterIdRef
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterIdRef = 0;
+    RecordingSample.prototype.inverterIdRef = null;
 
     /**
      * RecordingSample inverterIq.
-     * @member {number} inverterIq
+     * @member {number|null|undefined} inverterIq
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterIq = 0;
+    RecordingSample.prototype.inverterIq = null;
 
     /**
      * RecordingSample inverterId.
-     * @member {number} inverterId
+     * @member {number|null|undefined} inverterId
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterId = 0;
+    RecordingSample.prototype.inverterId = null;
 
     /**
      * RecordingSample inverterVq.
-     * @member {number} inverterVq
+     * @member {number|null|undefined} inverterVq
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterVq = 0;
+    RecordingSample.prototype.inverterVq = null;
 
     /**
      * RecordingSample inverterVd.
-     * @member {number} inverterVd
+     * @member {number|null|undefined} inverterVd
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterVd = 0;
+    RecordingSample.prototype.inverterVd = null;
 
     /**
      * RecordingSample mcuTempLogic.
-     * @member {number} mcuTempLogic
+     * @member {number|null|undefined} mcuTempLogic
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.mcuTempLogic = 0;
+    RecordingSample.prototype.mcuTempLogic = null;
 
     /**
      * RecordingSample mcuTempGate.
-     * @member {number} mcuTempGate
+     * @member {number|null|undefined} mcuTempGate
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.mcuTempGate = 0;
+    RecordingSample.prototype.mcuTempGate = null;
 
     /**
      * RecordingSample ntc1.
-     * @member {number} ntc1
+     * @member {number|null|undefined} ntc1
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.ntc1 = 0;
+    RecordingSample.prototype.ntc1 = null;
 
     /**
      * RecordingSample ntc2.
-     * @member {number} ntc2
+     * @member {number|null|undefined} ntc2
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.ntc2 = 0;
+    RecordingSample.prototype.ntc2 = null;
 
     /**
      * RecordingSample ntc3.
-     * @member {number} ntc3
+     * @member {number|null|undefined} ntc3
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.ntc3 = 0;
+    RecordingSample.prototype.ntc3 = null;
 
     /**
      * RecordingSample inverterPcbTemp.
-     * @member {number} inverterPcbTemp
+     * @member {number|null|undefined} inverterPcbTemp
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterPcbTemp = 0;
+    RecordingSample.prototype.inverterPcbTemp = null;
 
     /**
      * RecordingSample inverterPcbHumidity.
-     * @member {number} inverterPcbHumidity
+     * @member {number|null|undefined} inverterPcbHumidity
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterPcbHumidity = 0;
+    RecordingSample.prototype.inverterPcbHumidity = null;
 
     /**
      * RecordingSample faults.
-     * @member {number} faults
+     * @member {number|null|undefined} faults
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.faults = 0;
+    RecordingSample.prototype.faults = null;
 
     /**
      * RecordingSample status.
-     * @member {number} status
+     * @member {number|null|undefined} status
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.status = 0;
+    RecordingSample.prototype.status = null;
 
     /**
      * RecordingSample inverterHumidity.
-     * @member {number} inverterHumidity
+     * @member {number|null|undefined} inverterHumidity
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.inverterHumidity = 0;
+    RecordingSample.prototype.inverterHumidity = null;
 
     /**
      * RecordingSample miscBits.
-     * @member {number} miscBits
+     * @member {number|null|undefined} miscBits
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.miscBits = 0;
+    RecordingSample.prototype.miscBits = null;
 
     /**
      * RecordingSample indicatorBits.
-     * @member {number} indicatorBits
+     * @member {number|null|undefined} indicatorBits
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.indicatorBits = 0;
+    RecordingSample.prototype.indicatorBits = null;
 
     /**
      * RecordingSample alertBits.
-     * @member {number} alertBits
+     * @member {number|null|undefined} alertBits
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.alertBits = 0;
+    RecordingSample.prototype.alertBits = null;
 
     /**
      * RecordingSample faultBits.
-     * @member {number} faultBits
+     * @member {number|null|undefined} faultBits
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.faultBits = 0;
+    RecordingSample.prototype.faultBits = null;
 
     /**
      * RecordingSample infoBits.
-     * @member {number} infoBits
+     * @member {number|null|undefined} infoBits
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.infoBits = 0;
+    RecordingSample.prototype.infoBits = null;
 
     /**
      * RecordingSample batteryDcBus.
-     * @member {number} batteryDcBus
+     * @member {number|null|undefined} batteryDcBus
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.batteryDcBus = 0;
+    RecordingSample.prototype.batteryDcBus = null;
 
     /**
      * RecordingSample batterySoc.
-     * @member {number} batterySoc
+     * @member {number|null|undefined} batterySoc
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.batterySoc = 0;
+    RecordingSample.prototype.batterySoc = null;
 
     /**
      * RecordingSample batteryCurrent.
-     * @member {number} batteryCurrent
+     * @member {number|null|undefined} batteryCurrent
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.batteryCurrent = 0;
+    RecordingSample.prototype.batteryCurrent = null;
 
     /**
      * RecordingSample batteryVMin.
-     * @member {number} batteryVMin
+     * @member {number|null|undefined} batteryVMin
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.batteryVMin = 0;
+    RecordingSample.prototype.batteryVMin = null;
 
     /**
      * RecordingSample batteryVMax.
-     * @member {number} batteryVMax
+     * @member {number|null|undefined} batteryVMax
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.batteryVMax = 0;
+    RecordingSample.prototype.batteryVMax = null;
 
     /**
      * RecordingSample batteryVAvg.
-     * @member {number} batteryVAvg
+     * @member {number|null|undefined} batteryVAvg
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.batteryVAvg = 0;
+    RecordingSample.prototype.batteryVAvg = null;
 
     /**
      * RecordingSample gpsTimestamp.
-     * @member {number} gpsTimestamp
+     * @member {Long|null|undefined} gpsTimestamp
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsTimestamp = 0;
+    RecordingSample.prototype.gpsTimestamp = null;
 
     /**
      * RecordingSample gpsSpeed.
-     * @member {number} gpsSpeed
+     * @member {number|null|undefined} gpsSpeed
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsSpeed = 0;
+    RecordingSample.prototype.gpsSpeed = null;
 
     /**
      * RecordingSample gpsHeading.
-     * @member {number} gpsHeading
+     * @member {number|null|undefined} gpsHeading
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsHeading = 0;
+    RecordingSample.prototype.gpsHeading = null;
 
     /**
      * RecordingSample gpsAltitude.
-     * @member {number} gpsAltitude
+     * @member {number|null|undefined} gpsAltitude
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsAltitude = 0;
+    RecordingSample.prototype.gpsAltitude = null;
 
     /**
      * RecordingSample gpsAccuracy.
-     * @member {number} gpsAccuracy
+     * @member {number|null|undefined} gpsAccuracy
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsAccuracy = 0;
+    RecordingSample.prototype.gpsAccuracy = null;
 
     /**
      * RecordingSample gpsAltitudeAccuracy.
-     * @member {number} gpsAltitudeAccuracy
+     * @member {number|null|undefined} gpsAltitudeAccuracy
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsAltitudeAccuracy = 0;
+    RecordingSample.prototype.gpsAltitudeAccuracy = null;
 
     /**
      * RecordingSample gpsLongitude.
-     * @member {number} gpsLongitude
+     * @member {number|null|undefined} gpsLongitude
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsLongitude = 0;
+    RecordingSample.prototype.gpsLongitude = null;
 
     /**
      * RecordingSample gpsLatitude.
-     * @member {number} gpsLatitude
+     * @member {number|null|undefined} gpsLatitude
      * @memberof RecordingSample
      * @instance
      */
-    RecordingSample.prototype.gpsLatitude = 0;
+    RecordingSample.prototype.gpsLatitude = null;
 
     /**
      * RecordingSample igbtSensor.
@@ -626,7 +626,7 @@ export const RecordingSample = $root.RecordingSample = (() => {
         if (message.batteryVAvg != null && Object.hasOwnProperty.call(message, "batteryVAvg"))
             writer.uint32(/* id 42, wireType 0 =*/336).int32(message.batteryVAvg);
         if (message.gpsTimestamp != null && Object.hasOwnProperty.call(message, "gpsTimestamp"))
-            writer.uint32(/* id 43, wireType 0 =*/344).int32(message.gpsTimestamp);
+            writer.uint32(/* id 43, wireType 0 =*/344).uint64(message.gpsTimestamp);
         if (message.gpsSpeed != null && Object.hasOwnProperty.call(message, "gpsSpeed"))
             writer.uint32(/* id 44, wireType 5 =*/357).float(message.gpsSpeed);
         if (message.gpsHeading != null && Object.hasOwnProperty.call(message, "gpsHeading"))
@@ -858,7 +858,7 @@ export const RecordingSample = $root.RecordingSample = (() => {
                     break;
                 }
             case 43: {
-                    message.gpsTimestamp = reader.int32();
+                    message.gpsTimestamp = reader.uint64();
                     break;
                 }
             case 44: {
@@ -1074,8 +1074,8 @@ export const RecordingSample = $root.RecordingSample = (() => {
             if (!$util.isInteger(message.batteryVAvg))
                 return "batteryVAvg: integer expected";
         if (message.gpsTimestamp != null && message.hasOwnProperty("gpsTimestamp"))
-            if (!$util.isInteger(message.gpsTimestamp))
-                return "gpsTimestamp: integer expected";
+            if (!$util.isInteger(message.gpsTimestamp) && !(message.gpsTimestamp && $util.isInteger(message.gpsTimestamp.low) && $util.isInteger(message.gpsTimestamp.high)))
+                return "gpsTimestamp: integer|Long expected";
         if (message.gpsSpeed != null && message.hasOwnProperty("gpsSpeed"))
             if (typeof message.gpsSpeed !== "number")
                 return "gpsSpeed: number expected";
@@ -1226,7 +1226,14 @@ export const RecordingSample = $root.RecordingSample = (() => {
         if (object.batteryVAvg != null)
             message.batteryVAvg = object.batteryVAvg | 0;
         if (object.gpsTimestamp != null)
-            message.gpsTimestamp = object.gpsTimestamp | 0;
+            if ($util.Long)
+                (message.gpsTimestamp = $util.Long.fromValue(object.gpsTimestamp)).unsigned = true;
+            else if (typeof object.gpsTimestamp === "string")
+                message.gpsTimestamp = parseInt(object.gpsTimestamp, 10);
+            else if (typeof object.gpsTimestamp === "number")
+                message.gpsTimestamp = object.gpsTimestamp;
+            else if (typeof object.gpsTimestamp === "object")
+                message.gpsTimestamp = new $util.LongBits(object.gpsTimestamp.low >>> 0, object.gpsTimestamp.high >>> 0).toNumber(true);
         if (object.gpsSpeed != null)
             message.gpsSpeed = Number(object.gpsSpeed);
         if (object.gpsHeading != null)
@@ -1328,7 +1335,11 @@ export const RecordingSample = $root.RecordingSample = (() => {
             object.batteryVMin = 0;
             object.batteryVMax = 0;
             object.batteryVAvg = 0;
-            object.gpsTimestamp = 0;
+            if ($util.Long) {
+                let long = new $util.Long(0, 0, true);
+                object.gpsTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.gpsTimestamp = options.longs === String ? "0" : 0;
             object.gpsSpeed = 0;
             object.gpsHeading = 0;
             object.gpsAltitude = 0;
@@ -1428,7 +1439,10 @@ export const RecordingSample = $root.RecordingSample = (() => {
         if (message.batteryVAvg != null && message.hasOwnProperty("batteryVAvg"))
             object.batteryVAvg = message.batteryVAvg;
         if (message.gpsTimestamp != null && message.hasOwnProperty("gpsTimestamp"))
-            object.gpsTimestamp = message.gpsTimestamp;
+            if (typeof message.gpsTimestamp === "number")
+                object.gpsTimestamp = options.longs === String ? String(message.gpsTimestamp) : message.gpsTimestamp;
+            else
+                object.gpsTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.gpsTimestamp) : options.longs === Number ? new $util.LongBits(message.gpsTimestamp.low >>> 0, message.gpsTimestamp.high >>> 0).toNumber(true) : message.gpsTimestamp;
         if (message.gpsSpeed != null && message.hasOwnProperty("gpsSpeed"))
             object.gpsSpeed = options.json && !isFinite(message.gpsSpeed) ? String(message.gpsSpeed) : message.gpsSpeed;
         if (message.gpsHeading != null && message.hasOwnProperty("gpsHeading"))
@@ -1517,51 +1531,51 @@ export const IMUData = $root.IMUData = (() => {
 
     /**
      * IMUData accelX.
-     * @member {number} accelX
+     * @member {number|null|undefined} accelX
      * @memberof IMUData
      * @instance
      */
-    IMUData.prototype.accelX = 0;
+    IMUData.prototype.accelX = null;
 
     /**
      * IMUData accelY.
-     * @member {number} accelY
+     * @member {number|null|undefined} accelY
      * @memberof IMUData
      * @instance
      */
-    IMUData.prototype.accelY = 0;
+    IMUData.prototype.accelY = null;
 
     /**
      * IMUData accelZ.
-     * @member {number} accelZ
+     * @member {number|null|undefined} accelZ
      * @memberof IMUData
      * @instance
      */
-    IMUData.prototype.accelZ = 0;
+    IMUData.prototype.accelZ = null;
 
     /**
      * IMUData gyroX.
-     * @member {number} gyroX
+     * @member {number|null|undefined} gyroX
      * @memberof IMUData
      * @instance
      */
-    IMUData.prototype.gyroX = 0;
+    IMUData.prototype.gyroX = null;
 
     /**
      * IMUData gyroY.
-     * @member {number} gyroY
+     * @member {number|null|undefined} gyroY
      * @memberof IMUData
      * @instance
      */
-    IMUData.prototype.gyroY = 0;
+    IMUData.prototype.gyroY = null;
 
     /**
      * IMUData gyroZ.
-     * @member {number} gyroZ
+     * @member {number|null|undefined} gyroZ
      * @memberof IMUData
      * @instance
      */
-    IMUData.prototype.gyroZ = 0;
+    IMUData.prototype.gyroZ = null;
 
     /**
      * Creates a new IMUData instance using the specified properties.
@@ -1837,43 +1851,43 @@ export const TemperatureSensorData = $root.TemperatureSensorData = (() => {
 
     /**
      * TemperatureSensorData sensor1.
-     * @member {number} sensor1
+     * @member {number|null|undefined} sensor1
      * @memberof TemperatureSensorData
      * @instance
      */
-    TemperatureSensorData.prototype.sensor1 = 0;
+    TemperatureSensorData.prototype.sensor1 = null;
 
     /**
      * TemperatureSensorData sensor2.
-     * @member {number} sensor2
+     * @member {number|null|undefined} sensor2
      * @memberof TemperatureSensorData
      * @instance
      */
-    TemperatureSensorData.prototype.sensor2 = 0;
+    TemperatureSensorData.prototype.sensor2 = null;
 
     /**
      * TemperatureSensorData sensor3.
-     * @member {number} sensor3
+     * @member {number|null|undefined} sensor3
      * @memberof TemperatureSensorData
      * @instance
      */
-    TemperatureSensorData.prototype.sensor3 = 0;
+    TemperatureSensorData.prototype.sensor3 = null;
 
     /**
      * TemperatureSensorData valid.
-     * @member {boolean} valid
+     * @member {boolean|null|undefined} valid
      * @memberof TemperatureSensorData
      * @instance
      */
-    TemperatureSensorData.prototype.valid = false;
+    TemperatureSensorData.prototype.valid = null;
 
     /**
      * TemperatureSensorData used.
-     * @member {boolean} used
+     * @member {boolean|null|undefined} used
      * @memberof TemperatureSensorData
      * @instance
      */
-    TemperatureSensorData.prototype.used = false;
+    TemperatureSensorData.prototype.used = null;
 
     /**
      * Creates a new TemperatureSensorData instance using the specified properties.

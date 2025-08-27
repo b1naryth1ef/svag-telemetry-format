@@ -1,6 +1,6 @@
 {
   "name": "@b1naryth1ef/svag-telemetry-format",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Telemetry data format for the Svag application",
   "license": "MIT",
   "repository": {
@@ -12,7 +12,7 @@
   "types": "./src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pbjs -w es6 -t static-module -o src/index.js proto/v1.proto && pbts src/index.js -o src/index.d.ts"
+    "build": "pbjs -w es6 --es6 --null-defaults --force-long -t static-module -o src/index.js proto/v1.proto && pbts src/index.js -o src/index.d.ts"
   },
   "dependencies": {
     "protobufjs": "^7.5.4"
