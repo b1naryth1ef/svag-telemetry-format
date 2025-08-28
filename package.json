@@ -1,6 +1,6 @@
 {
   "name": "@b1naryth1ef/svag-telemetry-format",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Telemetry data format for the Svag application",
   "license": "MIT",
   "repository": {
@@ -11,7 +11,7 @@
   "main": "./src/v1.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "protoc --ts_out src/ --proto_path ./proto/v1.proto ./proto/v1.proto"
+    "build": "protoc --ts_out=src/ --proto_path=proto proto/v1.proto "
   },
   "dependencies": {
     "@protobuf-ts/plugin": "^2.11.1",
