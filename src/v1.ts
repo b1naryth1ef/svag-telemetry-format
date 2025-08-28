@@ -10,14 +10,15 @@ import { WireType } from "@protobuf-ts/runtime";
 import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { Timestamp } from "./google/protobuf/timestamp";
 /**
  * @generated from protobuf message RecordingSample
  */
 export interface RecordingSample {
     /**
-     * @generated from protobuf field: uint32 unix_time = 1
+     * @generated from protobuf field: google.protobuf.Timestamp unix_time = 1
      */
-    unixTime: number;
+    unixTime?: Timestamp;
     /**
      * @generated from protobuf field: uint32 frame_number = 2
      */
@@ -183,9 +184,9 @@ export interface RecordingSample {
      */
     batteryVAvg: number;
     /**
-     * @generated from protobuf field: uint32 gps_timestamp = 43
+     * @generated from protobuf field: google.protobuf.Timestamp gps_timestamp = 43
      */
-    gpsTimestamp: number;
+    gpsTimestamp?: Timestamp;
     /**
      * @generated from protobuf field: float gps_speed = 44
      */
@@ -289,7 +290,7 @@ export interface TemperatureSensorData {
 class RecordingSample$Type extends MessageType<RecordingSample> {
     constructor() {
         super("RecordingSample", [
-            { no: 1, name: "unix_time", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "unix_time", kind: "message", T: () => Timestamp },
             { no: 2, name: "frame_number", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "bluetooth_connected", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
             { no: 4, name: "fan_current", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
@@ -331,7 +332,7 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
             { no: 40, name: "battery_v_min", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 41, name: "battery_v_max", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 42, name: "battery_v_avg", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 43, name: "gps_timestamp", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 43, name: "gps_timestamp", kind: "message", T: () => Timestamp },
             { no: 44, name: "gps_speed", kind: "scalar", T: 2 /*ScalarType.FLOAT*/ },
             { no: 45, name: "gps_heading", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 46, name: "gps_altitude", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
@@ -347,7 +348,6 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
     }
     create(value?: PartialMessage<RecordingSample>): RecordingSample {
         const message = globalThis.Object.create((this.messagePrototype!));
-        message.unixTime = 0;
         message.frameNumber = 0;
         message.bluetoothConnected = false;
         message.fanCurrent = 0;
@@ -389,7 +389,6 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         message.batteryVMin = 0;
         message.batteryVMax = 0;
         message.batteryVAvg = 0;
-        message.gpsTimestamp = 0;
         message.gpsSpeed = 0;
         message.gpsHeading = 0;
         message.gpsAltitude = 0;
@@ -407,8 +406,8 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* uint32 unix_time */ 1:
-                    message.unixTime = reader.uint32();
+                case /* google.protobuf.Timestamp unix_time */ 1:
+                    message.unixTime = Timestamp.internalBinaryRead(reader, reader.uint32(), options, message.unixTime);
                     break;
                 case /* uint32 frame_number */ 2:
                     message.frameNumber = reader.uint32();
@@ -533,8 +532,8 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
                 case /* int32 battery_v_avg */ 42:
                     message.batteryVAvg = reader.int32();
                     break;
-                case /* uint32 gps_timestamp */ 43:
-                    message.gpsTimestamp = reader.uint32();
+                case /* google.protobuf.Timestamp gps_timestamp */ 43:
+                    message.gpsTimestamp = Timestamp.internalBinaryRead(reader, reader.uint32(), options, message.gpsTimestamp);
                     break;
                 case /* float gps_speed */ 44:
                     message.gpsSpeed = reader.float();
@@ -585,9 +584,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         return message;
     }
     internalBinaryWrite(message: RecordingSample, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* uint32 unix_time = 1; */
-        if (message.unixTime !== 0)
-            writer.tag(1, WireType.Varint).uint32(message.unixTime);
+        /* google.protobuf.Timestamp unix_time = 1; */
+        if (message.unixTime)
+            Timestamp.internalBinaryWrite(message.unixTime, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
         /* uint32 frame_number = 2; */
         if (message.frameNumber !== 0)
             writer.tag(2, WireType.Varint).uint32(message.frameNumber);
@@ -711,9 +710,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         /* int32 battery_v_avg = 42; */
         if (message.batteryVAvg !== 0)
             writer.tag(42, WireType.Varint).int32(message.batteryVAvg);
-        /* uint32 gps_timestamp = 43; */
-        if (message.gpsTimestamp !== 0)
-            writer.tag(43, WireType.Varint).uint32(message.gpsTimestamp);
+        /* google.protobuf.Timestamp gps_timestamp = 43; */
+        if (message.gpsTimestamp)
+            Timestamp.internalBinaryWrite(message.gpsTimestamp, writer.tag(43, WireType.LengthDelimited).fork(), options).join();
         /* float gps_speed = 44; */
         if (message.gpsSpeed !== 0)
             writer.tag(44, WireType.Bit32).float(message.gpsSpeed);

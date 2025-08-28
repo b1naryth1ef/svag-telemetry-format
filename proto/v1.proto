@@ -1,7 +1,9 @@
-syntax="proto3";
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
 
 message RecordingSample {
-  uint32 unix_time = 1;
+  google.protobuf.Timestamp unix_time = 1;
   uint32 frame_number = 2;
   bool bluetooth_connected = 3;
   int32 fan_current = 4;
@@ -43,7 +45,7 @@ message RecordingSample {
   int32 battery_v_min = 40;
   int32 battery_v_max = 41;
   int32 battery_v_avg = 42;
-  uint32 gps_timestamp = 43;
+  google.protobuf.Timestamp gps_timestamp = 43;
   float gps_speed = 44;
   int32 gps_heading = 45;
   int32 gps_altitude = 46;
