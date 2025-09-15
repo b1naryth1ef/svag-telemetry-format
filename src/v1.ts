@@ -231,6 +231,10 @@ export interface RecordingSample {
      * @generated from protobuf field: repeated int32 battery_temperatures = 54
      */
     batteryTemperatures: number[];
+    /**
+     * @generated from protobuf field: repeated int32 battery_cell_voltages = 55
+     */
+    batteryCellVoltages: number[];
 }
 /**
  * @generated from protobuf message IMUData
@@ -343,7 +347,8 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
             { no: 51, name: "igbt_sensor", kind: "message", T: () => TemperatureSensorData },
             { no: 52, name: "motor_sensor", kind: "message", T: () => TemperatureSensorData },
             { no: 53, name: "imu_data", kind: "message", T: () => IMUData },
-            { no: 54, name: "battery_temperatures", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
+            { no: 54, name: "battery_temperatures", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 55, name: "battery_cell_voltages", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value?: PartialMessage<RecordingSample>): RecordingSample {
@@ -397,6 +402,7 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         message.gpsLongitude = 0;
         message.gpsLatitude = 0;
         message.batteryTemperatures = [];
+        message.batteryCellVoltages = [];
         if (value !== undefined)
             reflectionMergePartial<RecordingSample>(this, message, value);
         return message;
@@ -571,6 +577,13 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
                             message.batteryTemperatures.push(reader.int32());
                     else
                         message.batteryTemperatures.push(reader.int32());
+                    break;
+                case /* repeated int32 battery_cell_voltages */ 55:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.batteryCellVoltages.push(reader.int32());
+                    else
+                        message.batteryCellVoltages.push(reader.int32());
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -748,6 +761,13 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
             writer.tag(54, WireType.LengthDelimited).fork();
             for (let i = 0; i < message.batteryTemperatures.length; i++)
                 writer.int32(message.batteryTemperatures[i]);
+            writer.join();
+        }
+        /* repeated int32 battery_cell_voltages = 55; */
+        if (message.batteryCellVoltages.length) {
+            writer.tag(55, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.batteryCellVoltages.length; i++)
+                writer.int32(message.batteryCellVoltages[i]);
             writer.join();
         }
         let u = options.writeUnknownFields;

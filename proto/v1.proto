@@ -58,6 +58,7 @@ message RecordingSample {
   TemperatureSensorData motor_sensor = 52;
   IMUData imu_data = 53;
   repeated int32 battery_temperatures = 54;
+  repeated int32 battery_cell_voltages = 55;
 }
 
 message IMUData {
