@@ -8,7 +8,7 @@ The format mostly replicates the data available via the Bluetooth interface, and
 
 ### Power Usage
 
-One very common question when processing a STF file would be calculating the instantaneous motor power. This can be done with two fields, the `battery_dc_bus` and `battery_current`. First you must divide `battery_dc_bus` by 10 to convert it into volts. Next we can simply do the standard electrical calculation of current _ voltage, or in our case: `(battery_dc_bus / 10) _ battery_current`.
+One very common question when processing a STF file would be calculating the instantaneous motor power. This can be done with two fields, the `battery_dc_bus` and `battery_current`. First you must divide `battery_dc_bus` by 10 to convert it into volts. Next we can simply do the standard electrical calculation of `voltage * current`, or in our case: `(battery_dc_bus / 10) * battery_current`.
 
 To calculate the HP from the KW used in the motor we must know the motors power factor. For at least the Varg EX and probably the MX this value is 0.0011. Multiplying the motor wattage by this value produces the instantaneous HP used.
 
