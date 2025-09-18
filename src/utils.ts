@@ -5,6 +5,22 @@ import { BaseBuilder, buildGPX } from "gpx-builder";
 import { Point } from "gpx-builder/dist/builder/BaseBuilder/models";
 import { Timestamp } from "./google/protobuf/timestamp";
 
+/// PartialBinaryReader describes an object which can fulfill small reads of binary data
+export interface PartialBinaryReader {
+  readBytes(length: number): Uint8Array<ArrayBuffer>;
+}
+
+/// readFirstSample reads a single sample from a PartialBinaryReader for an STF
+export function readFirstSample(
+  partialReader: PartialBinaryReader
+): RecordingSample {
+  const enoughData = partialReader.readBytes(4096);
+  const reader = new BinaryReader(enoughData);
+
+  const messageBytes = reader.bytes();
+  return RecordingSample.fromBinary(messageBytes);
+}
+
 /// readSamples takes a BinaryReader of a STF file and returns an array of its samples
 export function readSamples(reader: BinaryReader): Array<RecordingSample> {
   const samples: Array<RecordingSample> = [];

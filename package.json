@@ -1,18 +1,16 @@
 {
   "name": "@b1naryth1ef/svag-telemetry-format",
-  "version": "1.6.0",
+  "version": "1.9.0",
   "description": "Telemetry data format for the Svag application",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/b1naryth1ef/svag-telemetry-format.git"
+    "url": "git+https://github.com/b1naryth1ef/svag-telemetry-format.git"
   },
   "author": "",
-  "main": "./src/v1.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "protoc --ts_out=src/ --proto_path=proto proto/v1.proto",
-    "publish": "npm publish --access public"
   },
   "dependencies": {
     "@protobuf-ts/plugin": "^2.11.1",
@@ -21,5 +19,10 @@
   },
   "devDependencies": {
     "protoc": "^32.0.0"
+  },
+  "exports": {
+    ".": "./src/v1.ts",
+    "./utils": "./src/utils.ts",
+    "./google/protobuf/timestamp": "./src/google/protobuf/timestamp.ts"
   }
 }
