@@ -3,18 +3,39 @@
 // tslint:disable
 import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
 import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
 import type { BinaryReadOptions } from "@protobuf-ts/runtime";
 import type { IBinaryReader } from "@protobuf-ts/runtime";
 import { UnknownFieldHandler } from "@protobuf-ts/runtime";
-import { WireType } from "@protobuf-ts/runtime";
 import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { Timestamp } from "./google/protobuf/timestamp";
 /**
+ * @generated from protobuf message RecordingMetadata
+ */
+export interface RecordingMetadata {
+    /**
+     * @generated from protobuf field: string recorder = 1
+     */
+    recorder: string;
+    /**
+     * @generated from protobuf field: google.protobuf.Timestamp date = 2
+     */
+    date?: Timestamp;
+    /**
+     * @generated from protobuf field: repeated string tags = 3
+     */
+    tags: string[];
+}
+/**
  * @generated from protobuf message RecordingSample
  */
 export interface RecordingSample {
+    /**
+     * @generated from protobuf field: optional RecordingMetadata metadata = 57
+     */
+    metadata?: RecordingMetadata;
     /**
      * @generated from protobuf field: google.protobuf.Timestamp unix_time = 1
      */
@@ -59,10 +80,6 @@ export interface RecordingSample {
      * @generated from protobuf field: int32 map = 11
      */
     map: number;
-    /**
-     * @generated from protobuf field: optional int32 deprecated_speed_kmh = 12
-     */
-    deprecatedSpeedKmh?: number;
     /**
      * @generated from protobuf field: float speed_kmh = 56
      */
@@ -239,6 +256,10 @@ export interface RecordingSample {
      * @generated from protobuf field: repeated int32 battery_cell_voltages = 55
      */
     batteryCellVoltages: number[];
+    /**
+     * @generated from protobuf field: optional int32 deprecated_speed_kmh = 12
+     */
+    deprecatedSpeedKmh?: number;
 }
 /**
  * @generated from protobuf message IMUData
@@ -295,9 +316,72 @@ export interface TemperatureSensorData {
     used: boolean;
 }
 // @generated message type with reflection information, may provide speed optimized methods
+class RecordingMetadata$Type extends MessageType<RecordingMetadata> {
+    constructor() {
+        super("RecordingMetadata", [
+            { no: 1, name: "recorder", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "date", kind: "message", T: () => Timestamp },
+            { no: 3, name: "tags", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<RecordingMetadata>): RecordingMetadata {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.recorder = "";
+        message.tags = [];
+        if (value !== undefined)
+            reflectionMergePartial<RecordingMetadata>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: RecordingMetadata): RecordingMetadata {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string recorder */ 1:
+                    message.recorder = reader.string();
+                    break;
+                case /* google.protobuf.Timestamp date */ 2:
+                    message.date = Timestamp.internalBinaryRead(reader, reader.uint32(), options, message.date);
+                    break;
+                case /* repeated string tags */ 3:
+                    message.tags.push(reader.string());
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: RecordingMetadata, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string recorder = 1; */
+        if (message.recorder !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.recorder);
+        /* google.protobuf.Timestamp date = 2; */
+        if (message.date)
+            Timestamp.internalBinaryWrite(message.date, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* repeated string tags = 3; */
+        for (let i = 0; i < message.tags.length; i++)
+            writer.tag(3, WireType.LengthDelimited).string(message.tags[i]);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message RecordingMetadata
+ */
+export const RecordingMetadata = new RecordingMetadata$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class RecordingSample$Type extends MessageType<RecordingSample> {
     constructor() {
         super("RecordingSample", [
+            { no: 57, name: "metadata", kind: "message", T: () => RecordingMetadata },
             { no: 1, name: "unix_time", kind: "message", T: () => Timestamp },
             { no: 2, name: "frame_number", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "bluetooth_connected", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
@@ -309,7 +393,6 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
             { no: 9, name: "throttle_iq_fb", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 10, name: "throttle_position", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 11, name: "map", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 12, name: "deprecated_speed_kmh", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 56, name: "speed_kmh", kind: "scalar", T: 2 /*ScalarType.FLOAT*/ },
             { no: 13, name: "motor_rpm", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "odometer", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
@@ -353,7 +436,8 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
             { no: 52, name: "motor_sensor", kind: "message", T: () => TemperatureSensorData },
             { no: 53, name: "imu_data", kind: "message", T: () => IMUData },
             { no: 54, name: "battery_temperatures", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
-            { no: 55, name: "battery_cell_voltages", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
+            { no: 55, name: "battery_cell_voltages", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 12, name: "deprecated_speed_kmh", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value?: PartialMessage<RecordingSample>): RecordingSample {
@@ -417,6 +501,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
+                case /* optional RecordingMetadata metadata */ 57:
+                    message.metadata = RecordingMetadata.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
+                    break;
                 case /* google.protobuf.Timestamp unix_time */ 1:
                     message.unixTime = Timestamp.internalBinaryRead(reader, reader.uint32(), options, message.unixTime);
                     break;
@@ -449,9 +536,6 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
                     break;
                 case /* int32 map */ 11:
                     message.map = reader.int32();
-                    break;
-                case /* optional int32 deprecated_speed_kmh */ 12:
-                    message.deprecatedSpeedKmh = reader.int32();
                     break;
                 case /* float speed_kmh */ 56:
                     message.speedKmh = reader.float();
@@ -592,6 +676,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
                             message.batteryCellVoltages.push(reader.int32());
                     else
                         message.batteryCellVoltages.push(reader.int32());
+                    break;
+                case /* optional int32 deprecated_speed_kmh */ 12:
+                    message.deprecatedSpeedKmh = reader.int32();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -781,6 +868,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         /* float speed_kmh = 56; */
         if (message.speedKmh !== 0)
             writer.tag(56, WireType.Bit32).float(message.speedKmh);
+        /* optional RecordingMetadata metadata = 57; */
+        if (message.metadata)
+            RecordingMetadata.internalBinaryWrite(message.metadata, writer.tag(57, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

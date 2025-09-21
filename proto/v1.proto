@@ -2,7 +2,15 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
+message RecordingMetadata {
+  string recorder = 1;
+  google.protobuf.Timestamp date = 2;
+  repeated string tags = 3;
+}
+
 message RecordingSample {
+  optional RecordingMetadata metadata = 57; 
+
   google.protobuf.Timestamp unix_time = 1;
   uint32 frame_number = 2;
   bool bluetooth_connected = 3;
@@ -14,7 +22,6 @@ message RecordingSample {
   int32 throttle_iq_fb = 9;
   int32 throttle_position = 10;
   int32 map = 11;
-  optional int32 deprecated_speed_kmh = 12;
   float speed_kmh = 56;
   int32 motor_rpm = 13;
   int32 odometer = 14;
@@ -60,6 +67,8 @@ message RecordingSample {
   IMUData imu_data = 53;
   repeated int32 battery_temperatures = 54;
   repeated int32 battery_cell_voltages = 55;
+ 
+  optional int32 deprecated_speed_kmh = 12;
 }
 
 message IMUData {
