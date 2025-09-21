@@ -60,7 +60,11 @@ export interface RecordingSample {
      */
     map: number;
     /**
-     * @generated from protobuf field: int32 speed_kmh = 12
+     * @generated from protobuf field: optional int32 deprecated_speed_kmh = 12
+     */
+    deprecatedSpeedKmh?: number;
+    /**
+     * @generated from protobuf field: float speed_kmh = 56
      */
     speedKmh: number;
     /**
@@ -305,7 +309,8 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
             { no: 9, name: "throttle_iq_fb", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 10, name: "throttle_position", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 11, name: "map", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 12, name: "speed_kmh", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
+            { no: 12, name: "deprecated_speed_kmh", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
+            { no: 56, name: "speed_kmh", kind: "scalar", T: 2 /*ScalarType.FLOAT*/ },
             { no: 13, name: "motor_rpm", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "odometer", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 15, name: "inverter_dc_bus", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
@@ -445,8 +450,11 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
                 case /* int32 map */ 11:
                     message.map = reader.int32();
                     break;
-                case /* int32 speed_kmh */ 12:
-                    message.speedKmh = reader.int32();
+                case /* optional int32 deprecated_speed_kmh */ 12:
+                    message.deprecatedSpeedKmh = reader.int32();
+                    break;
+                case /* float speed_kmh */ 56:
+                    message.speedKmh = reader.float();
                     break;
                 case /* int32 motor_rpm */ 13:
                     message.motorRpm = reader.int32();
@@ -630,9 +638,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         /* int32 map = 11; */
         if (message.map !== 0)
             writer.tag(11, WireType.Varint).int32(message.map);
-        /* int32 speed_kmh = 12; */
-        if (message.speedKmh !== 0)
-            writer.tag(12, WireType.Varint).int32(message.speedKmh);
+        /* optional int32 deprecated_speed_kmh = 12; */
+        if (message.deprecatedSpeedKmh !== undefined)
+            writer.tag(12, WireType.Varint).int32(message.deprecatedSpeedKmh);
         /* int32 motor_rpm = 13; */
         if (message.motorRpm !== 0)
             writer.tag(13, WireType.Varint).int32(message.motorRpm);
@@ -770,6 +778,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
                 writer.int32(message.batteryCellVoltages[i]);
             writer.join();
         }
+        /* float speed_kmh = 56; */
+        if (message.speedKmh !== 0)
+            writer.tag(56, WireType.Bit32).float(message.speedKmh);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

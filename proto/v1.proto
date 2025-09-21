@@ -14,7 +14,8 @@ message RecordingSample {
   int32 throttle_iq_fb = 9;
   int32 throttle_position = 10;
   int32 map = 11;
-  int32 speed_kmh = 12;
+  optional int32 deprecated_speed_kmh = 12;
+  float speed_kmh = 56;
   int32 motor_rpm = 13;
   int32 odometer = 14;
   int32 inverter_dc_bus = 15;
