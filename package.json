@@ -1,6 +1,6 @@
 {
   "name": "@b1naryth1ef/svag-telemetry-format",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "Telemetry data format for the Svag application",
   "license": "MIT",
   "repository": {

@@ -5,6 +5,9 @@ import { BaseBuilder, buildGPX } from "gpx-builder";
 import { Point } from "gpx-builder/dist/builder/BaseBuilder/models";
 import { Timestamp } from "./google/protobuf/timestamp";
 
+/// RecordingSamples represents the data in a recording, either loaded in-memory or as binary protobuf data
+export type RecordingSamples = RecordingSample[] | BinaryReader;
+
 /// PartialBinaryReader describes an object which can fulfill small reads of binary data
 export interface PartialBinaryReader {
   readBytes(length: number): Uint8Array<ArrayBuffer>;
@@ -31,36 +34,54 @@ export function readSamples(reader: BinaryReader): Array<RecordingSample> {
   return samples;
 }
 
-/// processSamples takes a BinaryReader of a STF file and calls onSample for each of its samples
+/// processSamples handles iterating over a given RecordingSamples, calling onSample for every individual sample
 export function processSamples(
-  reader: BinaryReader,
+  samples: RecordingSamples,
   onSample: (sample: RecordingSample) => void,
   onError?: ((error: unknown) => void | "stop") | "ignore"
 ) {
-  while (reader.pos < reader.len) {
-    const messageBytes = reader.bytes();
-    try {
-      let sample = RecordingSample.fromBinary(messageBytes);
-      onSample(sample);
-    } catch (e) {
-      if (typeof onError === "function") {
-        if (onError(e) === "stop") {
-          return;
+  if (samples instanceof BinaryReader) {
+    while (samples.pos < samples.len) {
+      const messageBytes = samples.bytes();
+      try {
+        let sample = RecordingSample.fromBinary(messageBytes);
+        onSample(sample);
+      } catch (e) {
+        if (typeof onError === "function") {
+          if (onError(e) === "stop") {
+            return;
+          }
+        } else if (onError === "ignore") {
+          continue;
+        } else {
+          throw e;
         }
-      } else if (onError === "ignore") {
-        continue;
-      } else {
-        throw e;
+      }
+    }
+  } else {
+    for (const sample of samples) {
+      try {
+        onSample(sample);
+      } catch (e) {
+        if (typeof onError === "function") {
+          if (onError(e) === "stop") {
+            return;
+          }
+        } else if (onError === "ignore") {
+          continue;
+        } else {
+          throw e;
+        }
       }
     }
   }
 }
 
-/// generateGPXPoints returns an array of GPX Point objects for the given STF file
-export function generateGPXPoints(reader: BinaryReader): Array<Point> {
+// generateGPXPoints creates an array of GPX Point objects based on the given RecordingSamples
+export function generateGPXPoints(samples: RecordingSamples): Array<Point> {
   const points: Array<Point> = [];
 
-  processSamples(reader, (sample) => {
+  processSamples(samples, (sample) => {
     if (!sample.unixTime) return;
     points.push(
       new Point(sample.gpsLatitude, sample.gpsLongitude, {
@@ -73,9 +94,9 @@ export function generateGPXPoints(reader: BinaryReader): Array<Point> {
   return points;
 }
 
-/// toGPX converts a BinaryReader containing a STF file into a GPX file
-export function toGPX(reader: BinaryReader): string {
-  const points = generateGPXPoints(reader);
+/// toGPX converts the given RecordingSamples into a GPX file
+export function toGPX(samples: RecordingSamples): string {
+  const points = generateGPXPoints(samples);
   const builder = new BaseBuilder();
   builder.setSegmentPoints(points);
   return buildGPX(builder.toObject());
