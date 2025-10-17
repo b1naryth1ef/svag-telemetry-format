@@ -47,6 +47,7 @@ message RecordingSample {
   int32 alert_bits = 34;
   int32 fault_bits = 35;
   int32 info_bits = 36;
+  int32 battery_status = 58;
   int32 battery_dc_bus = 37;
   int32 battery_soc = 38;
   int32 battery_current = 39;

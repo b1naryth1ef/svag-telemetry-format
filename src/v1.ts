@@ -181,6 +181,10 @@ export interface RecordingSample {
      */
     infoBits: number;
     /**
+     * @generated from protobuf field: int32 battery_status = 58
+     */
+    batteryStatus: number;
+    /**
      * @generated from protobuf field: int32 battery_dc_bus = 37
      */
     batteryDcBus: number;
@@ -418,6 +422,7 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
             { no: 34, name: "alert_bits", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 35, name: "fault_bits", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 36, name: "info_bits", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
+            { no: 58, name: "battery_status", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 37, name: "battery_dc_bus", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 38, name: "battery_soc", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 39, name: "battery_current", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
@@ -477,6 +482,7 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         message.alertBits = 0;
         message.faultBits = 0;
         message.infoBits = 0;
+        message.batteryStatus = 0;
         message.batteryDcBus = 0;
         message.batterySoc = 0;
         message.batteryCurrent = 0;
@@ -611,6 +617,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
                     break;
                 case /* int32 info_bits */ 36:
                     message.infoBits = reader.int32();
+                    break;
+                case /* int32 battery_status */ 58:
+                    message.batteryStatus = reader.int32();
                     break;
                 case /* int32 battery_dc_bus */ 37:
                     message.batteryDcBus = reader.int32();
@@ -871,6 +880,9 @@ class RecordingSample$Type extends MessageType<RecordingSample> {
         /* optional RecordingMetadata metadata = 57; */
         if (message.metadata)
             RecordingMetadata.internalBinaryWrite(message.metadata, writer.tag(57, WireType.LengthDelimited).fork(), options).join();
+        /* int32 battery_status = 58; */
+        if (message.batteryStatus !== 0)
+            writer.tag(58, WireType.Varint).int32(message.batteryStatus);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
